@@ -1,6 +1,7 @@
 ## 2D Platformer Game
 
-<img width="998" alt="Screenshot 2023-11-26 at 16 20 13" src="https://github.com/joellait/tasohyppelipeli/assets/103943943/02ef174a-9e98-4a6c-87cc-830cdf250f1a">
+![image](https://github.com/joellait/tasohyppelipeli/assets/103943943/506fada6-8a44-4db9-a7d2-e9248bd5cd1c)
+
 
 ![image](https://github.com/joellait/tasohyppelipeli/assets/103943943/196725b0-0134-4eeb-8b11-95ce6b145d51)
 
