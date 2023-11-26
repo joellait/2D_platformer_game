@@ -18,6 +18,9 @@ from PyQt6.QtCore import (
 from scene import Scene
 from settings import *
       
+# Executing this file starts the game
+# The MainWindow class creates the GUI
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
