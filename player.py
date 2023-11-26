@@ -20,7 +20,7 @@ from settings import *
 class Player(QGraphicsPixmapItem):
     def __init__(self, game, parent = None):
         QGraphicsPixmapItem.__init__(self,parent)
-        self.setPixmap(QPixmap("pingu.png"))
+        self.setPixmap(QPixmap("0_pingu.png"))
         self.game = game #references the game so we can use the functions in it     
         self.position = QVector2D(100, 100)
         self.velocity = QVector2D(0, 0)
