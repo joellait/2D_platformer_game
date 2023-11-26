@@ -3,17 +3,15 @@ Created on 21 Apr 2020
 
 @author: joellaitila
 '''
-from PyQt5.QtGui import (
+from PyQt6.QtGui import (
     QColor
 )
-from PyQt5.Qt import (
+from PyQt6.QtCore import (
     QDir,
     QUrl
 )
-from PyQt5.QtMultimedia import (
-    QMediaContent,
+from PyQt6.QtMultimedia import (
     QMediaPlayer,
-    QMediaPlaylist
 )
 
 
@@ -39,12 +37,11 @@ GREEN = QColor(0, 255, 0)
 BLUE = QColor(0, 0, 255)
 
 #SOUNDSETTINGS
-
+"""
     #JUMP
 
 jump_path = QDir.current().absoluteFilePath('audio_jump_1.mp3') 
-jump_media = QUrl.fromLocalFile(jump_path)
-jump_content = QMediaContent(jump_media)
+jump_content = QMediaContent(QUrl.fromLocalFile(jump_path))
 JUMP = QMediaPlayer()
 JUMP.setMedia(jump_content)
 JUMP.setPlaybackRate(2)
@@ -52,16 +49,14 @@ JUMP.setPlaybackRate(2)
     #DEATH
     
 death_path = QDir.current().absoluteFilePath('audio_death_1.mp3') 
-death_media = QUrl.fromLocalFile(death_path)
-death_content = QMediaContent(death_media)
+death_content = QUrl.fromLocalFile(death_path)
 DEATH = QMediaPlayer()
 DEATH.setMedia(death_content)
     
     #VICTORY
 
 victory_path = QDir.current().absoluteFilePath('audio_victory_1.mp3') 
-victory_media = QUrl.fromLocalFile(victory_path)
-victory_content = QMediaContent(victory_media)
+victory_content = QUrl.fromLocalFile(victory_path)
 VICTORY = QMediaPlayer()
 VICTORY.setMedia(victory_content)
 VICTORY.setVolume(40)
@@ -69,8 +64,7 @@ VICTORY.setVolume(40)
     #BACKTRACK
 
 backtrack_path = QDir.current().absoluteFilePath('audio_backtrack.mp3') 
-backtrack_media = QUrl.fromLocalFile(backtrack_path)
-backtrack_content = QMediaContent(backtrack_media)
+backtrack_content = QUrl.fromLocalFile(backtrack_path)
 playlist = QMediaPlaylist()
 playlist.addMedia(backtrack_content)
 playlist.setPlaybackMode(QMediaPlaylist.Loop)
@@ -78,6 +72,7 @@ BACKTRACK = QMediaPlayer()
 BACKTRACK.setPlaylist(playlist)
 BACKTRACK.setVolume(40)
 
+"""
 
 #LEVEL SETTINGS - PLATFORMS (X, Y, WIDTH, HEIGHT)
 

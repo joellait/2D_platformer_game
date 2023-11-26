@@ -4,17 +4,16 @@ Created on 21 Apr 2020
 @author: joellaitila
 '''
 import sys
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QApplication,
     QGraphicsView,
-    QDesktopWidget,
     QMainWindow,
     QWidget,
     QHBoxLayout
 
 )
-from PyQt5.QtCore import (
-    Qt
+from PyQt6.QtCore import (
+    Qt, QRect
 )
 from scene import Scene
 from settings import *
@@ -33,10 +32,10 @@ class MainWindow(QMainWindow):
         self.center()
       
     def center(self):
-        screen = QDesktopWidget().screenGeometry()
-        size = self.geometry()
-        self.move((screen.width()-size.width())//2, (screen.height()-size.height())//2)
-        #centers the window on the screen
+        qr = self.frameGeometry()
+        cp = self.screen().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
     
     def init_window(self):
         self.resize(WIDTH+1, HEIGHT+1)
@@ -46,8 +45,8 @@ class MainWindow(QMainWindow):
         self.view = QGraphicsView(self.scene, self) 
         self.view.verticalScrollBar().setEnabled(False)
         self.view.horizontalScrollBar().setEnabled(False)
-        self.view.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.view.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.view.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.view.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.view.setFixedSize(WIDTH, HEIGHT)
         self.view.centerOn(0,0)
         self.view.show()
@@ -58,5 +57,5 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
 
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
     

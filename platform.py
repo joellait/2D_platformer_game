@@ -4,7 +4,7 @@ Created on 1 May 2020
 @author: joellaitila
 '''
 
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QGraphicsRectItem,
     QGraphicsScene
 )

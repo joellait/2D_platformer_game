@@ -4,14 +4,14 @@ Created on 1 May 2020
 @author: joellaitila
 '''
 
-from PyQt5.QtCore import (
+from PyQt6.QtCore import (
     Qt,
     QBasicTimer
 )
-from PyQt5.QtGui import (
+from PyQt6.QtGui import (
     QPixmap
 )
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QGraphicsPixmapItem,
     QGraphicsScene,
 )
@@ -115,25 +115,25 @@ class Scene(QGraphicsScene):
         #puts a start photo on the screen
           
     def game_update(self):
-        if self.start_screen and Qt.Key_Space in self.keys_pressed:
+        if self.start_screen and Qt.Key.Key_Space in self.keys_pressed:
             self.start_screen = False
             self.set_up_game()
             #creates a start screen if the game has just started
             
-        elif self.completed and Qt.Key_Space in self.keys_pressed:
+        elif self.completed and Qt.Key.Key_Space in self.keys_pressed:
             self.completed = False
             self.current_level_finished = False
             self.set_up_game()    
             #restarts the game after the player has finished it
             
         elif not self.running:
-            if Qt.Key_Space in self.keys_pressed:
+            if Qt.Key.Key_Space in self.keys_pressed:
                 self.removeItem(self.start_photo)
                 self.player = Player(self)
                 self.player.setPos(100,100)
                 self.addItem(self.player)
                 self.running = True
-                BACKTRACK.play()
+                #BACKTRACK.play()
             #after game over/passing the level, \
             #this function starts the level when player presses space
             

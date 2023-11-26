@@ -4,14 +4,14 @@ Created on 1 May 2020
 @author: joellaitila
 '''
 
-from PyQt5.QtCore import (
+from PyQt6.QtCore import (
     Qt
 )
-from PyQt5.QtGui import (
+from PyQt6.QtGui import (
     QPixmap,
     QVector2D
 )
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QGraphicsPixmapItem
 )
 from settings import *
@@ -31,11 +31,11 @@ class Player(QGraphicsPixmapItem):
         #setting up player movement by the pressed keys
         #movement itself happens later 
         self.acceleration = QVector2D(0, P_GRAVITY)
-        if Qt.Key_Left in keys_pressed:
+        if Qt.Key.Key_Left in keys_pressed:
             self.acceleration.setX(self.acceleration.x() - P_ACC)
-        if Qt.Key_Right in keys_pressed:
+        if Qt.Key.Key_Right in keys_pressed:
             self.acceleration.setX(self.acceleration.x() + P_ACC)
-        if Qt.Key_Up in keys_pressed:
+        if Qt.Key.Key_Up in keys_pressed:
             self.jump()
             
         #applying friction
@@ -84,14 +84,14 @@ class Player(QGraphicsPixmapItem):
                 
               
         if self.game.current_level_finished:
-            BACKTRACK.stop()
+            #BACKTRACK.stop()
             if self.game.current_level == self.game.level_1:
                 self.game.level_1_finished = True
             elif self.game.current_level == self.game.level_2:
                 self.game.level_2_finished = True
             elif self.game.current_level == self.game.level_3:
                 self.game.level_3_finished = True
-                VICTORY.play()
+                #VICTORY.play()
             self.game.timer.stop()
             self.game.set_up_game() 
             #set ups a new level if the player finished the current level
@@ -103,8 +103,8 @@ class Player(QGraphicsPixmapItem):
             self.game.level_3_finished = False
             self.game.first_game = False 
             self.game.timer.stop()
-            BACKTRACK.stop()
-            DEATH.play()
+            #BACKTRACK.stop()
+            #DEATH.play()
             self.game.set_up_game() 
             #player dies and starts a new game 
       
@@ -116,7 +116,7 @@ class Player(QGraphicsPixmapItem):
         #only if it is, then the player can jump (so one can't keep jumping multiple times)
         if self.collision == True:
             self.velocity.setY(-10)
-            JUMP.play()                 
+            #JUMP.play()                 
 
     def detectCollision(self,player, platform):
         x1 = player.get_x()

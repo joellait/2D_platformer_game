@@ -3,10 +3,10 @@ Created on 1 May 2020
 
 @author: joellaitila
 '''
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QGraphicsPixmapItem
 )
-from PyQt5.QtGui import (
+from PyQt6.QtGui import (
     QPixmap
 )
 
