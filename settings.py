@@ -11,9 +11,8 @@ from PyQt6.QtCore import (
     QUrl
 )
 from PyQt6.QtMultimedia import (
-    QMediaPlayer,
+    QMediaPlayer, QAudioOutput
 )
-
 
 #GAME SETTINGS
 
@@ -37,42 +36,43 @@ GREEN = QColor(0, 255, 0)
 BLUE = QColor(0, 0, 255)
 
 #SOUNDSETTINGS
-"""
+
     #JUMP
 
-jump_path = QDir.current().absoluteFilePath('audio_jump_1.mp3') 
-jump_content = QMediaContent(QUrl.fromLocalFile(jump_path))
+jump_filename = ('1_audio_jump_1.mp3')
 JUMP = QMediaPlayer()
-JUMP.setMedia(jump_content)
+jump_output = QAudioOutput()
+JUMP.setAudioOutput(jump_output)
+JUMP.setSource(QUrl.fromLocalFile(jump_filename))
 JUMP.setPlaybackRate(2)
- 
-    #DEATH
-    
-death_path = QDir.current().absoluteFilePath('audio_death_1.mp3') 
-death_content = QUrl.fromLocalFile(death_path)
+
+    # DEATH
+
+death_filename = ('1_audio_death_1.mp3')
 DEATH = QMediaPlayer()
-DEATH.setMedia(death_content)
-    
-    #VICTORY
+death_output = QAudioOutput()
+DEATH.setAudioOutput(death_output)
+DEATH.setSource(QUrl.fromLocalFile(death_filename))
 
-victory_path = QDir.current().absoluteFilePath('audio_victory_1.mp3') 
-victory_content = QUrl.fromLocalFile(victory_path)
+    # VICTORY
+
+victory_filename = ('1_audio_victory_1.mp3')
 VICTORY = QMediaPlayer()
-VICTORY.setMedia(victory_content)
-VICTORY.setVolume(40)
-    
-    #BACKTRACK
+victory_output = QAudioOutput()
+victory_output.setVolume(20)
+VICTORY.setAudioOutput(victory_output)
+VICTORY.setSource(QUrl.fromLocalFile(victory_filename))
 
-backtrack_path = QDir.current().absoluteFilePath('audio_backtrack.mp3') 
-backtrack_content = QUrl.fromLocalFile(backtrack_path)
-playlist = QMediaPlaylist()
-playlist.addMedia(backtrack_content)
-playlist.setPlaybackMode(QMediaPlaylist.Loop)
+    # BACKTRACK
+
+backtrack_filename = ('1_audio_backtrack.mp3')
 BACKTRACK = QMediaPlayer()
-BACKTRACK.setPlaylist(playlist)
-BACKTRACK.setVolume(40)
+backtrack_output = QAudioOutput()
+backtrack_output.setVolume(40)
+BACKTRACK.setAudioOutput(backtrack_output)
+BACKTRACK.setSource(QUrl.fromLocalFile(backtrack_filename))
+BACKTRACK.setLoops(-1)
 
-"""
 
 #LEVEL SETTINGS - PLATFORMS (X, Y, WIDTH, HEIGHT)
 

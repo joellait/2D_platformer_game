@@ -84,14 +84,14 @@ class Player(QGraphicsPixmapItem):
                 
               
         if self.game.current_level_finished:
-            #BACKTRACK.stop()
+            BACKTRACK.stop()
             if self.game.current_level == self.game.level_1:
                 self.game.level_1_finished = True
             elif self.game.current_level == self.game.level_2:
                 self.game.level_2_finished = True
             elif self.game.current_level == self.game.level_3:
                 self.game.level_3_finished = True
-                #VICTORY.play()
+                VICTORY.play()
             self.game.timer.stop()
             self.game.set_up_game() 
             #set ups a new level if the player finished the current level
@@ -103,8 +103,8 @@ class Player(QGraphicsPixmapItem):
             self.game.level_3_finished = False
             self.game.first_game = False 
             self.game.timer.stop()
-            #BACKTRACK.stop()
-            #DEATH.play()
+            BACKTRACK.stop()
+            DEATH.play()
             self.game.set_up_game() 
             #player dies and starts a new game 
       
@@ -116,7 +116,7 @@ class Player(QGraphicsPixmapItem):
         #only if it is, then the player can jump (so one can't keep jumping multiple times)
         if self.collision == True:
             self.velocity.setY(-10)
-            #JUMP.play()                 
+            JUMP.play()                 
 
     def detectCollision(self,player, platform):
         x1 = player.get_x()

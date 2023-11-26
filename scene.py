@@ -133,7 +133,7 @@ class Scene(QGraphicsScene):
                 self.player.setPos(100,100)
                 self.addItem(self.player)
                 self.running = True
-                #BACKTRACK.play()
+                BACKTRACK.play()
             #after game over/passing the level, \
             #this function starts the level when player presses space
             
